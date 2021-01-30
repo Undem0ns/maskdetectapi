@@ -1,15 +1,13 @@
-from typing import Optional
-
-from fastapi import FastAPI
-
-app = FastAPI()
+from flask import Flask
 
 
-@app.get("maskdetect.azurewebsites.net")
-def read_root():
-    return {"Hello": "World"}
+app = Flask(__name__)
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
+@app.route('/')
+def home():
+    return "Hello World"
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
