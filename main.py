@@ -5,7 +5,7 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("maskdetect.azurewebsites.net")
 def read_root():
     return {"Hello": "World"}
 
